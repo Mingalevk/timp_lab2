@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2>Спортсмены</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ФИО</th>
+                  <th>Страна</th>
+                  <th>Дата рождения</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for sportsman in sportsmen_list %}
+                        <tr>
+                            <th scope="row">{{sportsman.id}}</th>
+                            <td>{{sportsman.fio}}</td>
+                            <td>{{sportsman.country}}</td>
+                            <td>{{sportsman.bdate}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Соревнования </h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Место</th>
+                  <th>Вид</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for contest in contests %}
+                        <tr>
+                            <th scope="row">{{contest.id}}</th>
+                            <td>{{contest.place}}</td>
+                            <td>{{contest.type}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h4>Участники: {{contestant}}</h4>
+        </div>
+	</body>
+</html>
