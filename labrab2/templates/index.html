@@ -52,7 +52,24 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <h4>Участники: {{contestant}}</h4>
+
+            <h2>Участники </h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>Спортсмен</th>
+                  <th>Место</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for contestant in contestants %}
+                        <tr>
+                            <th scope="row">{{contestant.contestant.id}}</th>
+                            <td>{{contestant.place}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
 	</body>
 </html>
