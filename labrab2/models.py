@@ -9,12 +9,13 @@ class Sportsmen(models.Model):
 
 
 class Contest(models.Model):
-    cont_id = models.IntegerField(primary_key=True, default=1)
+    #id = models.IntegerField(primary_key=True, default=1)
     place = models.CharField(max_length=30)
     type = models.CharField(max_length=30)
 
 
 class Contestant(models.Model):
     contestant = models.ForeignKey(Sportsmen)
-    contestant_place = models.IntegerField(null=True)
+    contest = models.ForeignKey(Contest)
+    contestant_place = models.IntegerField()
 

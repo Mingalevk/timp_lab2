@@ -10,10 +10,12 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 ]
 '''
+admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'example.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', IndexView.as_view()),
+    url(r'^admin/', include(admin.site.urls)),
 )

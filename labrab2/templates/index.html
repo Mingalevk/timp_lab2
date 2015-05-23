@@ -58,6 +58,7 @@
                 <thead>
                 <tr>
                   <th>Спортсмен</th>
+                  <th>Соревнование</th>
                   <th>Место</th>
                 </tr>
                 </thead>
@@ -65,6 +66,7 @@
                     {% for contestant in contestants %}
                         <tr>
                             <th scope="row">{{contestant.contestant.id}}</th>
+                            <td>{{contestant.contest.id}}</td>
                             <td>{{contestant.place}}</td>
                         </tr>
                     {% endfor %}

@@ -1,31 +1,18 @@
 from labrab2.models import Sportsmen, Contest, Contestant
-'''
-sp1 = Sportsmen()
-sp1.id = 1
-sp1.fio = 'Sultan Suleyman'
-sp1.country = 'Russia'
-sp1.bdate = '1995-08-12'
-sp1.save()
 
-cont1 = Contest()
-#cont1.cont_id = 1
-cont1.place = 'Tomsk'
-cont1.type = 'Marathon'
-cont1.save()
+Sportsmen.objects.all().delete()
+Contest.objects.all().delete()
+sportsman1 = Sportsmen.objects.create(fio='Sportsman #1', country='Russia', bdate = '1990-11-30')
 
-contestant1 = Contestant()
-contestant1.contestant = sp1
-contestant1.contestant_place = 1
-contestant1.save()
-'''
-sportsman1 = Sportsmen.objects.create(id=1, fio='Sportsman #1', country='sf', bdate = '1995-12-12')
-sportsman2 = Sportsmen.objects.create(id=2, fio='df', country='sf', bdate = '1995-12-12')
-sportsman3 = Sportsmen.objects.create(id=3, fio='df', country='sf', bdate = '1995-12-12')
+sportsman2 = Sportsmen.objects.create(fio='Sportsman #2', country='not_Russia', bdate = '1992-09-03')
+sportsman2.save()
+sportsman3 = Sportsmen.objects.create(fio='Sportsman #3', country='USA', bdate = '1991-01-25')
+sportsman3.save()
 
-contest1 = Contest.objects.create()
-contest1 = Contest.objects.create()
-contest1 = Contest.objects.create()
+contest1 = Contest.objects.create(pk=1, place='City#1', type='Marathon')
+contest2 = Contest.objects.create(pk=2, place='City#2', type='Marathon')
+contest3 = Contest.objects.create(pk=3, place='City#3', type='Sprint')
 
-contestant2 = Contestant.objects.create(contestant=sp2, contestant_place=2)
-contestant2 = Contestant.objects.create(contestant=sp2, contestant_place=2)
-contestant2 = Contestant.objects.create(contestant=sp2, contestant_place=2)
+contestant1 = Contestant.objects.create(contestant=sportsman1, contest=contest1, contestant_place=1)
+contestant2 = Contestant.objects.create(contestant=sportsman2, contest=contest1, contestant_place=2)
+contestant3 = Contestant.objects.create(contestant=sportsman3, contest=contest3, contestant_place=4)
